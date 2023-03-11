@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="2">
+    <tr>
+        <td>이름</td>
+        <td>나이</td>
+    </tr>
+<!-- 반복되는 상위에 each를 걸어야 한다. person는 임의 변수 명 people은 컨트롤러-->
+    <tr th:each="person:${people}">
+        <td th:text="${person.name}">이름</td>
+        <td th:text="${person.getAge()}">나이</td>
+    </tr>
+</table>
+
+</body>
+</html>
