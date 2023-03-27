@@ -28,7 +28,7 @@
 <li>5. spring이란? / MyBatis / MySQL 연결 / JPA 사용법</li>
 <p>https://codingnewbie.tistory.com/111</p>
 <p>https://codingnewbie.tistory.com/113</p>
-<p>https://codingnewbie.tistory.com/113</p>
+
 
 
 
