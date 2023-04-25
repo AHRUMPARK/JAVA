@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 리스트</title>
+</head>
+    <script>
+        function writeDetail(){
+            document.location.href = "/writeBoard";
+        }
+    </script>
+<body>
+<h5>board 리스트</h5>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>타이틀</th>
+        <th>내용</th>
+    </tr>
+    <tr th:each="user:${list}">
+        <td th:text="${user.getId()}">번호</td>
+        <td th:text="${user.getTitle()}">타이틀</td>
+        <td th:text="${user.getContent()}">내용</td>
+    </tr>
+</table>
+    <button type="button" onclick="writeDetail()">글쓰기</button>
+</body>
+</html>

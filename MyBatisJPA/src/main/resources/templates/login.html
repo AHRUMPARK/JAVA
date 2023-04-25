@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>login</title>
+</head>
+
+  <script>
+    function login(){
+      var form = document.getElementById('form_login');
+      var data = {
+        id : form.id.value,
+        pw: form.pw.value,
+      }
+      axios.post(`/person/login`,data)
+      .then((res)=>{
+        console.log(res.data);
+
+
+    <!-- 실제 실행 부분-->
+        if( res.data != ""){
+          alert('로그인 성공!');
+<!-- 내가 선택한 폼 => 폼 로그인(아이디, 비번 적혀있음)에 엑션, 메소드 속성을 추가해서 그 폼을 전송하겠다.-->
+<!--아이디랑 비번이 /info라는 곳으로 전송된다. => 결과 응답이 오면 /info로 전송한다.-->
+<!--          <form action="/person/info" => 일반 폼전송은 리퀘스트 바디가있으면, 동작을 하지 않는다.-->
+          form.action = "/person/info";
+          form.method = "post";
+          form.submit();
+        } else {
+          alert('로그인 실패!');
+          form.reset();
+        }
+      });
+    }
+  </script>
+<body>
+  <form id="form_login">
+    <input type="text" placeholder="id" name="id">
+    <br>
+    <input type="password"  name="pw">
+    <br>
+    <button type="button" onclick="login();">로그인</button>
+  </form>
+</body>
+</html>
+
+
+<!--로그인 ㅡ> axios 요청 보내고 ㅡ> 응답 ㅡ> info로 post 전송-->
